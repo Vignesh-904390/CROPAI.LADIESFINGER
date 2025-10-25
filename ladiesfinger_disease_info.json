@@ -1,0 +1,170 @@
+{
+  "Healthy": {
+    "fertilizer": "Balanced NPK",
+    "water": "Moderate, 70%",
+    "medicine": ["N/A"],
+    "organic_medicine": ["Compost"],
+    "prevention": "Maintain proper care and irrigation."
+  },
+  "Cercospora Leaf Spots": {
+    "fertilizer": "Potassium-rich fertilizers",
+    "water": "Moderate",
+    "medicine": ["Fungicide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove affected leaves and avoid overhead irrigation."
+  },
+  "Fusarium wilt": {
+    "fertilizer": "Phosphorus-rich fertilizers",
+    "water": "Reduce to 60%",
+    "medicine": ["Fungicide drench"],
+    "organic_medicine": ["Neem cake"],
+    "prevention": "Use disease-free seeds and crop rotation."
+  },
+  "Powdery mildew Erysiphe cichoracearum": {
+    "fertilizer": "Potassium-rich fertilizers",
+    "water": "Moderate",
+    "medicine": ["Fungicide spray"],
+    "organic_medicine": ["Neem oil", "Baking soda solution"],
+    "prevention": "Improve air circulation and avoid overcrowding."
+  },
+  "Hadda Beetle Damage (Epilachna spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Garlic extract"],
+    "prevention": "Handpick beetles and maintain field hygiene."
+  },
+  "Leaf Curling (Non-viral)": {
+    "fertilizer": "Nitrogen-based fertilizers",
+    "water": "Moderate",
+    "medicine": ["Balanced micronutrients"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove affected leaves and maintain proper nutrition."
+  },
+  "Mealybug Damage (Phenacoccus spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Soap water"],
+    "prevention": "Monitor early and use sticky traps."
+  },
+  "Thrips Damage (Thrips spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Monitor fields regularly and remove infested plants."
+  },
+  "Vein-ClearingYellow Vein Mosaic": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["N/A"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Use resistant varieties and control whiteflies."
+  },
+  "Flea Beetle Damage (Podagrica spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Handpick beetles and remove debris from the field."
+  },
+  "Leaf Roller Damage (Sylepta derogata)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove rolled leaves and control larvae."
+  },
+  "Semilooper Damage (Anomis flava)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Garlic extract"],
+    "prevention": "Handpick larvae and maintain field hygiene."
+  },
+  "Aphid Damage (Aphis gossypii)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Soap water"],
+    "prevention": "Monitor and control early using sticky traps."
+  },
+  "JassidLeafhopper Damage (Amrasca devastans)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Monitor regularly and maintain field hygiene."
+  },
+  "Red Cotton Bug Damage (Dysdercus cingulatus)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove infested plants and monitor fields."
+  },
+  "Red Spider Mite Damage (Tetranychus spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Miticide application"],
+    "organic_medicine": ["Neem oil", "Soap water"],
+    "prevention": "Regularly wash leaves and control early infestations."
+  },
+  "Whitefly Damage (Bemisia tabaci)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Soap water"],
+    "prevention": "Monitor and control using yellow sticky traps."
+  },
+  "Fruit Borer (Helicoverpa armigera)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil", "Bacillus thuringiensis"],
+    "prevention": "Remove infested fruits and monitor crops."
+  },
+  "Shoot and Fruit Borer (Earias spp.)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove affected shoots and fruits regularly."
+  },
+  "Stem Weevil (Pempherulus affinis)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Insecticide application"],
+    "organic_medicine": ["Neem oil paste"],
+    "prevention": "Remove infested stems and maintain field hygiene."
+  },
+  "Tobacco Ring Spot Virus": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["N/A"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Use virus-free seeds and control vectors."
+  },
+  "Yellow Vein Mosaic Virus (BYVMV)": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["N/A"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Use resistant varieties and control whiteflies."
+  },
+  "Bacterial Blight": {
+    "fertilizer": "Balanced fertilizers",
+    "water": "Moderate",
+    "medicine": ["Copper fungicide spray"],
+    "organic_medicine": ["Neem oil"],
+    "prevention": "Remove infected leaves and maintain sanitation."
+  },
+  "Stem Rot": {
+    "fertilizer": "Potassium-rich fertilizers",
+    "water": "Reduce to 60%",
+    "medicine": ["Fungicide drench"],
+    "organic_medicine": ["Neem cake"],
+    "prevention": "Avoid waterlogging and prune affected stems."
+  }
+}

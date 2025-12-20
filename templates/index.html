@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ladies Finger (Okra) Disease Detection</title>
+  <title>Ladies Finger Disease Detection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -17,6 +17,8 @@
       --gray: #f5f5f5;
       --text: #333333;
       --chatbot-color: #2196F3;
+      --buy-button: #2196F3;
+      --buy-button-hover: #1976D2;
     }
     
     * {
@@ -176,19 +178,15 @@
     
     /* Hero Section - Full Banner */
     .hero {
-      background: 
-        linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-        linear-gradient(rgba(76, 175, 80, 0.1), rgba(46, 125, 50, 0.2)),
-        url('https://media.istockphoto.com/id/497752754/photo/okra-plant-close-up-organic-produce-food-farming.jpg?s=612x612&w=0&k=20&c=FaFHdu2AzGSc0IFQPZ6vu5nhjCDCdle8hg2HfrvUefw=') 
-        no-repeat center center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://media.istockphoto.com/id/497752754/photo/okra-plant-close-up-organic-produce-food-farming.jpg?s=612x612&w=0&k=20&c=FaFHdu2AzGSc0IFQPZ6vu5nhjCDCdle8hg2HfrvUefw=') 
+                  no-repeat center center/cover;
       height: 80vh;
       display: flex;
       align-items: center;
       text-align: center;
       position: relative;
       margin-bottom: 40px;
-      background-blend-mode: overlay, normal;
-      filter: brightness(1.2) contrast(1.1);
     }
     
     .hero-content {
@@ -197,7 +195,6 @@
       color: var(--white);
       padding: 0 20px;
       animation: fadeIn 1.5s ease-in;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
     
     @keyframes fadeIn {
@@ -537,6 +534,46 @@
       border-color: var(--primary);
     }
     
+    /* Buy Button Styling */
+    .buy-button {
+      background-color: var(--buy-button);
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      margin-left: 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    
+    .buy-button:hover {
+      background-color: var(--buy-button-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+    }
+    
+    .buy-button i {
+      font-size: 0.7rem;
+    }
+    
+    .medicine-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      padding: 5px 0;
+    }
+    
+    .medicine-name {
+      flex: 1;
+    }
+    
     /* Footer */
     footer {
       background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
@@ -827,6 +864,13 @@
         align-items: center;
       }
       
+      /* Buy Button Responsive */
+      .buy-button {
+        padding: 3px 8px;
+        font-size: 0.75rem;
+        margin-left: 8px;
+      }
+      
       /* Chatbot Avatar Responsive */
       .chatbot-avatar {
         bottom: 90px;
@@ -872,6 +916,12 @@
         padding: 12px 20px;
         font-size: 0.9rem;
       }
+      
+      .buy-button {
+        padding: 2px 6px;
+        font-size: 0.7rem;
+        margin-left: 5px;
+      }
     }
   </style>
 </head>
@@ -889,10 +939,14 @@
 </div>
 
 <!-- Header Banner -->
-<header class="hero">
+<header class="hero" 
+  style="background-image: url('https://media.istockphoto.com/id/497752754/photo/okra-plant-close-up-organic-produce-food-farming.jpg?s=612x612&w=0&k=20&c=FaFHdu2AzGSc0IFQPZ6vu5nhjCDCdle8hg2HfrvUefw='); 
+         background-size: cover; 
+         background-position: center; 
+         background-repeat: no-repeat;">
   <div class="hero-content">
-    <h1 data-translate="hero-title">Ladies Finger (Okra) Disease Detection</h1>
-    <p data-translate="hero-subtitle">Upload your okra plant image or video to detect diseases instantly with AI-powered analysis</p>
+    <h1 data-translate="hero-title">Ladies Finger (Okra) Plant Disease Detection</h1>
+    <p data-translate="hero-subtitle">Upload your okra plant leaf image or video to detect diseases instantly with AI-powered analysis</p>
   </div>
 </header>
 
@@ -956,20 +1010,20 @@
     <!-- Upload Options -->
     <div class="upload-section">
         <div class="card">
-            <h3><i class="fas fa-camera"></i> <span data-translate="upload-image-title">Upload Plant Image</span></h3>
-            <p data-translate="upload-image-desc">Upload a clear image of ladies finger leaves, stem, or fruits for disease detection</p>
+            <h3><i class="fas fa-camera"></i> <span data-translate="upload-image-title">Upload Leaf Image</span></h3>
+            <p data-translate="upload-image-desc">Upload a clear image of a ladies finger (okra) leaf for disease detection</p>
             <form action="/predict" method="POST" enctype="multipart/form-data">
-                <input type="file" name="image" accept="image/*" required title="Select ladies finger plant image">
+                <input type="file" name="image" accept="image/*" required title="Select leaf image">
                 <br>
                 <button type="submit"><i class="fas fa-search"></i> <span data-translate="diagnose-image">Diagnose Image</span></button>
             </form>
         </div>
 
         <div class="card">
-            <h3><i class="fas fa-video"></i> <span data-translate="upload-video-title">Upload Plant Video</span></h3>
-            <p data-translate="upload-video-desc">Upload a video of ladies finger plants for comprehensive analysis</p>
+            <h3><i class="fas fa-video"></i> <span data-translate="upload-video-title">Upload Leaf Video</span></h3>
+            <p data-translate="upload-video-desc">Upload a video of okra plant leaves for comprehensive analysis</p>
             <form action="/predict_video" method="POST" enctype="multipart/form-data">
-                <input type="file" name="video" accept="video/*" required title="Select ladies finger plant video">
+                <input type="file" name="video" accept="video/*" required title="Select leaf video">
                 <br>
                 <button type="submit"><i class="fas fa-search"></i> <span data-translate="diagnose-video">Diagnose Video</span></button>
             </form>
@@ -1007,11 +1061,29 @@
                 {% if details.fertilizer %}<p><strong><i class="fas fa-seedling"></i> Fertilizer:</strong> {{ details.fertilizer }}</p>{% endif %}
                 {% if details.medicine %}
                     <p><strong><i class="fas fa-pills"></i> Medicine:</strong></p>
-                    <ul>{% for med in details.medicine %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.medicine %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">Buy</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.organic_medicine %}
                     <p><strong><i class="fas fa-leaf"></i> Organic Medicine:</strong></p>
-                    <ul>{% for org in details.organic_medicine %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.organic_medicine %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">Buy</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.prevention %}<p><strong><i class="fas fa-shield-alt"></i> Prevention:</strong> {{ details.prevention }}</p>{% endif %}
             </div>
@@ -1024,11 +1096,29 @@
                 {% if details.tamil.get('உரம்') %}<p><strong><i class="fas fa-seedling"></i> உரம்:</strong> {{ details.tamil.get('உரம்', 'N/A') }}</p>{% endif %}
                 {% if details.tamil.get('மருந்து') %}
                     <p><strong><i class="fas fa-pills"></i> மருந்து:</strong></p>
-                    <ul>{% for med in details.tamil.get('மருந்து', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.tamil.get('மருந்து', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">வாங்க</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.tamil.get('கரிம மருந்து') %}
                     <p><strong><i class="fas fa-leaf"></i> கரிம மருந்து:</strong></p>
-                    <ul>{% for org in details.tamil.get('கரிம மருந்து', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.tamil.get('கரிம மருந்து', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">வாங்க</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.tamil.get('தடுப்பு முறைகள்') %}<p><strong><i class="fas fa-shield-alt"></i> தடுப்பு முறைகள்:</strong> {{ details.tamil.get('தடுப்பு முறைகள்', 'N/A') }}</p>{% endif %}
             </div>
@@ -1041,11 +1131,29 @@
                 {% if details.hindi.get('उर्वरक') %}<p><strong><i class="fas fa-seedling"></i> उर्वरक:</strong> {{ details.hindi.get('उर्वरक', 'N/A') }}</p>{% endif %}
                 {% if details.hindi.get('दवा') %}
                     <p><strong><i class="fas fa-pills"></i> दवा:</strong></p>
-                    <ul>{% for med in details.hindi.get('दवा', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.hindi.get('दवा', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">खरीदें</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.hindi.get('जैविक दवा') %}
                     <p><strong><i class="fas fa-leaf"></i> जैविक दवा:</strong></p>
-                    <ul>{% for org in details.hindi.get('जैविक दवा', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.hindi.get('जैविक दवा', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">खरीदें</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.hindi.get('रोकथाम') %}<p><strong><i class="fas fa-shield-alt"></i> रोकथाम:</strong> {{ details.hindi.get('रोकथाम', 'N/A') }}</p>{% endif %}
             </div>
@@ -1058,11 +1166,29 @@
                 {% if details.malayalam.get('വളം') %}<p><strong><i class="fas fa-seedling"></i> വളം:</strong> {{ details.malayalam.get('വളം', 'N/A') }}</p>{% endif %}
                 {% if details.malayalam.get('മരുന്ന്') %}
                     <p><strong><i class="fas fa-pills"></i> മരുന്ന്:</strong></p>
-                    <ul>{% for med in details.malayalam.get('മരുന്ന്', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.malayalam.get('മരുന്ന്', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">വാങ്ങുക</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.malayalam.get('ജൈവ മരുന്ന്') %}
                     <p><strong><i class="fas fa-leaf"></i> ജൈവ മരുന്ന്:</strong></p>
-                    <ul>{% for org in details.malayalam.get('ജൈവ മരുന്ന്', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.malayalam.get('ജൈവ മരുന്ന്', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">വാങ്ങുക</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.malayalam.get('തടയൽ') %}<p><strong><i class="fas fa-shield-alt"></i> തടയൽ:</strong> {{ details.malayalam.get('തടയൽ', 'N/A') }}</p>{% endif %}
             </div>
@@ -1075,11 +1201,29 @@
                 {% if details.telugu.get('ఎరువు') %}<p><strong><i class="fas fa-seedling"></i> ఎరువు:</strong> {{ details.telugu.get('ఎరువు', 'N/A') }}</p>{% endif %}
                 {% if details.telugu.get('మందు') %}
                     <p><strong><i class="fas fa-pills"></i> మందు:</strong></p>
-                    <ul>{% for med in details.telugu.get('మందు', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.telugu.get('మందు', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">కొనండి</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.telugu.get('సేంద్రియ మందు') %}
                     <p><strong><i class="fas fa-leaf"></i> సేంద్రియ మందు:</strong></p>
-                    <ul>{% for org in details.telugu.get('సేంద్రియ మందు', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.telugu.get('సేంద్రియ మందు', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">కొనండి</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.telugu.get('నివారణ') %}<p><strong><i class="fas fa-shield-alt"></i> నివారణ:</strong> {{ details.telugu.get('నివారణ', 'N/A') }}</p>{% endif %}
             </div>
@@ -1092,11 +1236,29 @@
                 {% if details.kannada.get('ಎರುವು') %}<p><strong><i class="fas fa-seedling"></i> ಎರುವು:</strong> {{ details.kannada.get('ಎರುವು', 'N/A') }}</p>{% endif %}
                 {% if details.kannada.get('ಮದ್ದು') %}
                     <p><strong><i class="fas fa-pills"></i> ಮದ್ದು:</strong></p>
-                    <ul>{% for med in details.kannada.get('ಮದ್ದು', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.kannada.get('ಮದ್ದು', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">ಖರೀದಿಸಿ</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.kannada.get('ಸಾವಯವ ಮದ್ದು') %}
                     <p><strong><i class="fas fa-leaf"></i> ಸಾವಯವ ಮದ್ದು:</strong></p>
-                    <ul>{% for org in details.kannada.get('ಸಾವಯವ ಮದ್ದು', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.kannada.get('ಸಾವಯವ ಮದ್ದು', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">ಖರೀದಿಸಿ</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.kannada.get('ತಡೆಗಟ್ಟುವಿಕೆ') %}<p><strong><i class="fas fa-shield-alt"></i> ತಡೆಗಟ್ಟುವಿಕೆ:</strong> {{ details.kannada.get('ತಡೆಗಟ್ಟುವಿಕೆ', 'N/A') }}</p>{% endif %}
             </div>
@@ -1109,11 +1271,29 @@
                 {% if details.urdu.get('کھاد') %}<p><strong><i class="fas fa-seedling"></i> کھاد:</strong> {{ details.urdu.get('کھاد', 'N/A') }}</p>{% endif %}
                 {% if details.urdu.get('دوا') %}
                     <p><strong><i class="fas fa-pills"></i> دوا:</strong></p>
-                    <ul>{% for med in details.urdu.get('دوا', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for med in details.urdu.get('دوا', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ med }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">خریدیں</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.urdu.get('نامیاتی دوا') %}
                     <p><strong><i class="fas fa-leaf"></i> نامیاتی دوا:</strong></p>
-                    <ul>{% for org in details.urdu.get('نامیاتی دوا', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                    <ul>
+                    {% for org in details.urdu.get('نامیاتی دوا', []) %}
+                        <li class="medicine-item">
+                            <span class="medicine-name">{{ org }}</span>
+                            <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                <i class="fas fa-shopping-cart"></i> <span data-translate="buy">خریدیں</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% endif %}
                 {% if details.urdu.get('روک تھام') %}<p><strong><i class="fas fa-shield-alt"></i> روک تھام:</strong> {{ details.urdu.get('روک تھام', 'N/A') }}</p>{% endif %}
             </div>
@@ -1121,7 +1301,7 @@
         
         {% if image_url %}
             <p><strong data-translate="uploaded-image">Uploaded Image</strong>:</p>
-            <img src="{{ image_url }}" width="300" alt="Uploaded Ladies Finger Plant Image">
+            <img src="{{ image_url }}" width="300" alt="Uploaded Leaf Image">
         {% endif %}
     </div>
     {% endif %}
@@ -1162,11 +1342,29 @@
                         {% if item.details.fertilizer %}<p><strong><i class="fas fa-seedling"></i> Fertilizer:</strong> {{ item.details.fertilizer }}</p>{% endif %}
                         {% if item.details.medicine %}
                             <p><strong><i class="fas fa-pills"></i> Medicine:</strong></p>
-                            <ul>{% for med in item.details.medicine %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.medicine %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">Buy</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.organic_medicine %}
                             <p><strong><i class="fas fa-leaf"></i> Organic Medicine:</strong></p>
-                            <ul>{% for org in item.details.organic_medicine %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.organic_medicine %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">Buy</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.prevention %}<p><strong><i class="fas fa-shield-alt"></i> Prevention:</strong> {{ item.details.prevention }}</p>{% endif %}
                     </div>
@@ -1178,11 +1376,29 @@
                         {% if item.details.tamil.get('உரம்') %}<p><strong><i class="fas fa-seedling"></i> உரம்:</strong> {{ item.details.tamil.get('உரம்', 'N/A') }}</p>{% endif %}
                         {% if item.details.tamil.get('மருந்து') %}
                             <p><strong><i class="fas fa-pills"></i> மருந்து:</strong></p>
-                            <ul>{% for med in item.details.tamil.get('மருந்து', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.tamil.get('மருந்து', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">வாங்க</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.tamil.get('கரிம மருந்து') %}
                             <p><strong><i class="fas fa-leaf"></i> கரிம மருந்து:</strong></p>
-                            <ul>{% for org in item.details.tamil.get('கரிம மருந்து', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.tamil.get('கரிம மருந்து', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">வாங்க</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.tamil.get('தடுப்பு முறைகள்') %}<p><strong><i class="fas fa-shield-alt"></i> தடுப்பு முறைகள்:</strong> {{ item.details.tamil.get('தடுப்பு முறைகள்', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1194,11 +1410,29 @@
                         {% if item.details.hindi.get('उर्वरक') %}<p><strong><i class="fas fa-seedling"></i> उर्वरक:</strong> {{ item.details.hindi.get('उर्वरक', 'N/A') }}</p>{% endif %}
                         {% if item.details.hindi.get('दवा') %}
                             <p><strong><i class="fas fa-pills"></i> दवा:</strong></p>
-                            <ul>{% for med in item.details.hindi.get('दवा', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.hindi.get('दवा', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">खरीदें</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.hindi.get('जैविक दवा') %}
                             <p><strong><i class="fas fa-leaf"></i> जैविक दवा:</strong></p>
-                            <ul>{% for org in item.details.hindi.get('जैविक दवा', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.hindi.get('जैविक दवा', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">खरीदें</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.hindi.get('रोकथाम') %}<p><strong><i class="fas fa-shield-alt"></i> रोकथाम:</strong> {{ item.details.hindi.get('रोकथाम', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1210,11 +1444,29 @@
                         {% if item.details.malayalam.get('വളം') %}<p><strong><i class="fas fa-seedling"></i> വളം:</strong> {{ item.details.malayalam.get('വളം', 'N/A') }}</p>{% endif %}
                         {% if item.details.malayalam.get('മരുന്ന്') %}
                             <p><strong><i class="fas fa-pills"></i> മരുന്ന്:</strong></p>
-                            <ul>{% for med in item.details.malayalam.get('മരുന്ന്', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.malayalam.get('മരുന്ന്', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">വാങ്ങുക</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.malayalam.get('ജൈവ മരുന്ന്') %}
                             <p><strong><i class="fas fa-leaf"></i> ജൈവ മരുന്ന്:</strong></p>
-                            <ul>{% for org in item.details.malayalam.get('ജൈവ മരുന്ന്', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.malayalam.get('ജൈവ മരുന്ന്', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">വാങ്ങുക</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.malayalam.get('തടയൽ') %}<p><strong><i class="fas fa-shield-alt"></i> തടയൽ:</strong> {{ item.details.malayalam.get('തടയൽ', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1226,11 +1478,29 @@
                         {% if item.details.telugu.get('ఎరువు') %}<p><strong><i class="fas fa-seedling"></i> ఎరువు:</strong> {{ item.details.telugu.get('ఎరువు', 'N/A') }}</p>{% endif %}
                         {% if item.details.telugu.get('మందు') %}
                             <p><strong><i class="fas fa-pills"></i> మందు:</strong></p>
-                            <ul>{% for med in item.details.telugu.get('మందు', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.telugu.get('మందు', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">కొనండి</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.telugu.get('సేంద్రియ మందు') %}
                             <p><strong><i class="fas fa-leaf"></i> సేంద్రియ మందు:</strong></p>
-                            <ul>{% for org in item.details.telugu.get('సేంద్రియ మందు', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.telugu.get('సేంద్రియ మందు', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">కొనండి</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.telugu.get('నివారణ') %}<p><strong><i class="fas fa-shield-alt"></i> నివారణ:</strong> {{ item.details.telugu.get('నివారణ', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1242,11 +1512,29 @@
                         {% if item.details.kannada.get('ಎರುವು') %}<p><strong><i class="fas fa-seedling"></i> ಎರುವು:</strong> {{ item.details.kannada.get('ಎರುವು', 'N/A') }}</p>{% endif %}
                         {% if item.details.kannada.get('ಮದ್ದು') %}
                             <p><strong><i class="fas fa-pills"></i> ಮದ್ದು:</strong></p>
-                            <ul>{% for med in item.details.kannada.get('ಮದ್ದು', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.kannada.get('ಮದ್ದು', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">ಖರೀದಿಸಿ</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.kannada.get('ಸಾವಯವ ಮದ್ದು') %}
                             <p><strong><i class="fas fa-leaf"></i> ಸಾವಯವ ಮದ್ದು:</strong></p>
-                            <ul>{% for org in item.details.kannada.get('ಸಾವಯವ ಮದ್ದು', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.kannada.get('ಸಾವಯವ ಮದ್ದು', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">ಖರೀದಿಸಿ</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.kannada.get('ತಡೆಗಟ್ಟುವಿಕೆ') %}<p><strong><i class="fas fa-shield-alt"></i> ತಡೆಗಟ್ಟುವಿಕೆ:</strong> {{ item.details.kannada.get('ತಡೆಗಟ್ಟುವಿಕೆ', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1258,11 +1546,29 @@
                         {% if item.details.urdu.get('کھاد') %}<p><strong><i class="fas fa-seedling"></i> کھاد:</strong> {{ item.details.urdu.get('کھاد', 'N/A') }}</p>{% endif %}
                         {% if item.details.urdu.get('دوا') %}
                             <p><strong><i class="fas fa-pills"></i> دوا:</strong></p>
-                            <ul>{% for med in item.details.urdu.get('دوا', []) %}<li>{{ med }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for med in item.details.urdu.get('دوا', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ med }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ med }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">خریدیں</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.urdu.get('نامیاتی دوا') %}
                             <p><strong><i class="fas fa-leaf"></i> نامیاتی دوا:</strong></p>
-                            <ul>{% for org in item.details.urdu.get('نامیاتی دوا', []) %}<li>{{ org }}</li>{% endfor %}</ul>
+                            <ul>
+                            {% for org in item.details.urdu.get('نامیاتی دوا', []) %}
+                                <li class="medicine-item">
+                                    <span class="medicine-name">{{ org }}</span>
+                                    <button class="buy-button" onclick="searchMedicine('{{ org }}')">
+                                        <i class="fas fa-shopping-cart"></i> <span data-translate="buy">خریدیں</span>
+                                    </button>
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endif %}
                         {% if item.details.urdu.get('روک تھام') %}<p><strong><i class="fas fa-shield-alt"></i> روک تھام:</strong> {{ item.details.urdu.get('روک تھام', 'N/A') }}</p>{% endif %}
                     </div>
@@ -1308,12 +1614,12 @@
   const translations = {
     en: {
       "app-name": "Ladies Finger Disease Detection",
-      "hero-title": "Ladies Finger (Okra) Disease Detection",
-      "hero-subtitle": "Upload your okra plant image or video to detect diseases instantly with AI-powered analysis",
-      "upload-image-title": "Upload Plant Image",
-      "upload-image-desc": "Upload a clear image of ladies finger leaves, stem, or fruits for disease detection",
-      "upload-video-title": "Upload Plant Video",
-      "upload-video-desc": "Upload a video of ladies finger plants for comprehensive analysis",
+      "hero-title": "Ladies Finger (Okra) Plant Disease Detection",
+      "hero-subtitle": "Upload your okra plant leaf image or video to detect diseases instantly with AI-powered analysis",
+      "upload-image-title": "Upload Leaf Image",
+      "upload-image-desc": "Upload a clear image of a ladies finger (okra) leaf for disease detection",
+      "upload-video-title": "Upload Leaf Video",
+      "upload-video-desc": "Upload a video of okra plant leaves for comprehensive analysis",
       "diagnose-image": "Diagnose Image",
       "diagnose-video": "Diagnose Video",
       "predicted-disease": "Predicted Disease",
@@ -1333,16 +1639,17 @@
       "for-farmers": "for Farmers",
       "powered-by": "Powered by TDA TECHNOLOGY",
       "chatbot-tooltip": "Need more help? Ask me anything!",
-      "chatbot-speech": "You want more information? Feel free to ask me! 😊"
+      "chatbot-speech": "You want more information? Feel free to ask me! 😊",
+      "buy": "Buy"
     },
     ta: {
       "app-name": "வெண்டைக்காய் நோய் கண்டறிதல்",
-      "hero-title": "வெண்டைக்காய் (ஒக்ரா) நோய் கண்டறிதல்",
-      "hero-subtitle": "உங்கள் வெண்டைக்காய் செடி படம் அல்லது வீடியோவை பதிவேற்றி AI-இன் மூலம் உடனடியாக நோய்களை கண்டறியவும்",
-      "upload-image-title": "செடி படத்தை பதிவேற்று",
-      "upload-image-desc": "நோயை கண்டறிய வெண்டைக்காய் இலைகள், தண்டு அல்லது காய்களின் தெளிவான படத்தை பதிவேற்றவும்",
-      "upload-video-title": "செடி வீடியோவை பதிவேற்று",
-      "upload-video-desc": "விரிவான பகுப்பாய்விற்கு வெண்டைக்காய் செடிகளின் வீடியோவை பதிவேற்றவும்",
+      "hero-title": "வெண்டைக்காய் செடி நோய் கண்டறிதல்",
+      "hero-subtitle": "உங்கள் வெண்டைக்காய் இலை படம் அல்லது வீடியோவை பதிவேற்றி AI-இன் மூலம் உடனடியாக நோய்களை கண்டறியவும்",
+      "upload-image-title": "இலை படத்தை பதிவேற்று",
+      "upload-image-desc": "நோயை கண்டறிய வெண்டைக்காய் இலையின் தெளிவான படத்தை பதிவேற்றவும்",
+      "upload-video-title": "இலை வீடியோவை பதிவேற்று",
+      "upload-video-desc": "விரிவான பகுப்பாய்விற்கு வெண்டைக்காய் செடி இலைகளின் வீடியோவை பதிவேற்றவும்",
       "diagnose-image": "படத்தை கண்டறியவும்",
       "diagnose-video": "வீடியோவை கண்டறியவும்",
       "predicted-disease": "கண்டறியப்பட்ட நோய்",
@@ -1362,16 +1669,17 @@
       "for-farmers": "விவசாயிகளுக்காக",
       "powered-by": "TDA TECHNOLOGY ஆல் இயக்கப்படுகிறது",
       "chatbot-tooltip": "மேலும் உதவி தேவையா? எதையும் கேளுங்கள்!",
-      "chatbot-speech": "மேலும் தகவல் வேண்டுமா? என்னிடம் கேட்க தயங்காதீர்கள்! 😊"
+      "chatbot-speech": "மேலும் தகவல் வேண்டுமா? என்னிடம் கேட்க தயங்காதீர்கள்! 😊",
+      "buy": "வாங்க"
     },
     hi: {
       "app-name": "भिंडी रोग पहचान",
-      "hero-title": "भिंडी (ओकरा) रोग पहचान",
-      "hero-subtitle": "अपनी भिंडी के पौधे की छवि या वीडियो अपलोड करें और AI-संचालित विश्लेषण के साथ तुरंत बीमारियों का पता लगाएं",
-      "upload-image-title": "पौधे की छवि अपलोड करें",
-      "upload-image-desc": "रोग पहचान के लिए भिंडी के पत्तों, तने या फलों की स्पष्ट छवि अपलोड करें",
-      "upload-video-title": "पौधे का वीडियो अपलोड करें",
-      "upload-video-desc": "व्यापक विश्लेषण के लिए भिंडी के पौधों का वीडियो अपलोड करें",
+      "hero-title": "भिंडी के पौधे की बीमारी की पहचान",
+      "hero-subtitle": "अपनी भिंडी के पौधे की पत्ती की छवि या वीडियो अपलोड करें और AI-संचालित विश्लेषण के साथ तुरंत बीमारियों का पता लगाएं",
+      "upload-image-title": "पत्ती छवि अपलोड करें",
+      "upload-image-desc": "रोग पहचान के लिए भिंडी के पत्ते की स्पष्ट छवि अपलोड करें",
+      "upload-video-title": "पत्ती वीडियो अपलोड करें",
+      "upload-video-desc": "व्यापक विश्लेषण के लिए भिंडी के पौधे की पत्तियों का वीडियो अपलोड करें",
       "diagnose-image": "छवि का निदान करें",
       "diagnose-video": "वीडियो का निदान करें",
       "predicted-disease": "पूर्वानुमानित रोग",
@@ -1391,124 +1699,129 @@
       "for-farmers": "किसानों के लिए",
       "powered-by": "TDA TECHNOLOGY द्वारा संचालित",
       "chatbot-tooltip": "और मदद चाहिए? मुझसे कुछ भी पूछें!",
-      "chatbot-speech": "आप और जानकारी चाहते हैं? मुझसे पूछने में संकोच न करें! 😊"
+      "chatbot-speech": "आप और जानकारी चाहते हैं? मुझसे पूछने में संकोच न करें! 😊",
+      "buy": "खरीदें"
     },
-     ml: {
-  "app-name": "തെങ്ങ് രോഗ തിരിച്ചറിയൽ",
-  "hero-title": "തെങ്ങ് രോഗ തിരിച്ചറിയൽ",
-  "hero-subtitle": "നിങ്ങളുടെ തെങ്ങിൻ ഇലയുടെ ചിത്രം അല്ലെങ്കിൽ വീഡിയോ അപ്‌ലോഡ് ചെയ്ത് AI-ശക്തമായ വിശകലനം ഉപയോഗിച്ച് തൽക്ഷണം രോഗങ്ങൾ കണ്ടെത്തുക",
-  "upload-image-title": "ഇലയുടെ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
-  "upload-image-desc": "രോഗ തിരിച്ചറിയലിനായി തെങ്ങിൻ ഇലയുടെ വ്യക്തമായ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
-  "upload-video-title": "ഇലയുടെ വീഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
-  "upload-video-desc": "വിപുലമായ വിശകലനത്തിനായി തെങ്ങിൻ ഇലകളുടെ വീഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
-  "diagnose-image": "ചിത്രം രോഗനിർണയം ചെയ്യുക",
-  "diagnose-video": "വീഡിയോ രോഗനിർണയം ചെയ്യുക",
-  "predicted-disease": "പ്രവചിച്ച രോഗം",
-  "detected-diseases": "കണ്ടെത്തിയ രോഗങ്ങൾ",
-  "explanation": "വിശദീകരണം",
-  "water": "വെള്ളം",
-  "fertilizer": "വളം",
-  "medicine": "മരുന്ന്",
-  "organic-medicine": "ജൈവ മരുന്ന്",
-  "prevention": "തടയൽ",
-  "uploaded-image": "അപ്‌ലോഡ് ചെയ്ത ചിത്രം",
-  "uploaded-frame": "അപ്‌ലോഡ് ചെയ്ത വീഡിയോ ഫ്രെയിം",
-  "contact": "ബന്ധപ്പെടുക",
-  "contact-us": "ഞങ്ങളെ ബന്ധപ്പെടുക",
-  "send-message": "സന്ദേശം അയയ്ക്കുക",
-  "built-for": "ഉപയോഗിച്ച് നിർമ്മിച്ചത്",
-  "for-farmers": "കർഷകർക്കായി",
-  "powered-by": "TDA TECHNOLOGY നൽകുന്ന ശക്തി",
-  "chatbot-tooltip": "കൂടുതൽ സഹായം വേണോ? എന്നോട് എന്തും ചോദിക്കുക!",
-  "chatbot-speech": "കൂടുതൽ വിവരങ്ങൾ വേണമോ? ചോദിക്കാൻ ഒട്ടും സംശയിക്കേണ്ട! 😊"
-},
-    te:{
-  "app-name": "కొబ్బరి వ్యాధి గుర్తింపు",
-  "hero-title": "కొబ్బరి చెట్టు వ్యాధి గుర్తింపు",
-  "hero-subtitle": "మీ కొబ్బరి ఆకు ఇమేజ్ లేదా వీడియోను అప్‌లోడ్ చేసి, AI-ఆధారిత విశ్లేషణతో తక్షణమే వ్యాధులను గుర్తించండి",
-  "upload-image-title": "ఆకు ఇమేజ్ అప్‌లోడ్ చేయండి",
-  "upload-image-desc": "వ్యాధి గుర్తింపు కోసం కొబ్బరి ఆకు యొక్క స్పష్టమైన ఇమేజ్ ను అప్‌లోడ్ చేయండి",
-  "upload-video-title": "ఆకు వీడియో అప్‌లోడ్ చేయండి",
-  "upload-video-desc": "విస్తృత విశ్లేషణ కోసం కొబ్బరి ఆకుల వీడియోను అప్‌లోడ్ చేయండి",
-  "diagnose-image": "ఇమేజ్ ను రోగనిర్ధారణ చేయండి",
-  "diagnose-video": "వీడియోను రోగనిర్ధారణ చేయండి",
-  "predicted-disease": "అంచనా వేసిన వ్యాధి",
-  "detected-diseases": "గుర్తించబడిన వ్యాధులు",
-  "explanation": "వివరణ",
-  "water": "నీరు",
-  "fertilizer": "ఎరువు",
-  "medicine": "మందు",
-  "organic-medicine": "సేంద్రియ మందు",
-  "prevention": "నివారణ",
-  "uploaded-image": "అప్‌లోడ్ చేసిన ఇమేజ్",
-  "uploaded-frame": "అప్‌లోడ్ చేసిన వీడియో ఫ్రేమ్",
-  "contact": "సంప్రదించండి",
-  "contact-us": "మమ్మల్ని సంప్రదించండి",
-  "send-message": "సందేశం పంపండి",
-  "built-for": "తో నిర్మించబడింది",
-  "for-farmers": "రైతుల కోసం",
-  "powered-by": "TDA TECHNOLOGY ద్వారా సమర్థించబడింది",
-  "chatbot-tooltip": "మరింత సహాయం కావాలా? నన్ను ఏదైనా అడగండి!",
-  "chatbot-speech": "మీకు మరింత సమాచారం కావాలా? అడగడానికి సంకోచించకండి! 😊"
-},
-    kn:{
-  "app-name": "ತೆಂಗಿನ ರೋಗ ಗುರುತಿಸುವಿಕೆ",
-  "hero-title": "ತೆಂಗಿನ ಮರದ ರೋಗ ಗುರುತಿಸುವಿಕೆ",
-  "hero-subtitle": "ನಿಮ್ಮ ತೆಂಗಿನ ಎಲೆಯ ಚಿತ್ರ ಅಥವಾ ವೀಡಿಯೊವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು AI-ಚಾಲಿತ ವಿಶ್ಲೇಷಣೆಯೊಂದಿಗೆ ತಕ್ಷಣ ರೋಗಗಳನ್ನು ಪತ್ತೆ ಮಾಡಿ",
-  "upload-image-title": "ಎಲೆಯ ಚಿತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
-  "upload-image-desc": "ರೋಗ ಗುರುತಿಸುವಿಕೆಗಾಗಿ ತೆಂಗಿನ ಎಲೆಯ ಸ್ಪಷ್ಟ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
-  "upload-video-title": "ಎಲೆಯ ವೀಡಿಯೊ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
-  "upload-video-desc": "ವ್ಯಾಪಕ ವಿಶ್ಲೇಷಣೆಗಾಗಿ ತೆಂಗಿನ ಎಲೆಗಳ ವೀಡಿಯೊವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
-  "diagnose-image": "ಚಿತ್ರವನ್ನು ರೋಗನಿರ್ಣಯ ಮಾಡಿ",
-  "diagnose-video": "ವೀಡಿಯೊವನ್ನು ರೋಗನಿರ್ಣಯ ಮಾಡಿ",
-  "predicted-disease": "ಊಹಿಸಲಾದ ರೋಗ",
-  "detected-diseases": "ಗುರುತಿಸಲಾದ ರೋಗಗಳು",
-  "explanation": "ವಿವರಣೆ",
-  "water": "ನೀರು",
-  "fertilizer": "ಎರುವು",
-  "medicine": "ಮದ್ದು",
-  "organic-medicine": "ಸಾವಯವ ಮದ್ದು",
-  "prevention": "ತಡೆಗಟ್ಟುವಿಕೆ",
-  "uploaded-image": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರ",
-  "uploaded-frame": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ವೀಡಿಯೊ ಫ್ರೇಮ್",
-  "contact": "ಸಂಪರ್ಕಿಸಿ",
-  "contact-us": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
-  "send-message": "ಸಂದೇಶ ಕಳುಹಿಸಿ",
-  "built-for": "ಜೊತೆಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ",
-  "for-farmers": "ರೈತರಿಗಾಗಿ",
-  "powered-by": "TDA TECHNOLOGY ನಿಂದ ಶಕ್ತಿ ಪಡೆದಿದೆ",
-  "chatbot-tooltip": "ಹೆಚ್ಚಿನ ಸಹಾಯ ಬೇಕೇ? ನನ್ನನ್ನು ಏನಾದರೂ ಕೇಳಿ!",
-  "chatbot-speech": "ನಿಮಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿ ಬೇಕೇ? ಕೇಳಲು ಹಿಂಜರಿಯಬೇಡಿ! 😊"
-},
+    ml: {
+      "app-name": "വെണ്ടക്കാ രോഗ തിരിച്ചറിയൽ",
+      "hero-title": "വെണ്ടക്കാ ചെടി രോഗ തിരിച്ചറിയൽ",
+      "hero-subtitle": "നിങ്ങളുടെ വെണ്ടക്കാ ഇലയുടെ ചിത്രം അല്ലെങ്കിൽ വീഡിയോ അപ്‌ലോഡ് ചെയ്ത് AI-ശക്തമായ വിശകലനം ഉപയോഗിച്ച് തൽക്ഷണം രോഗങ്ങൾ കണ്ടെത്തുക",
+      "upload-image-title": "ഇലയുടെ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      "upload-image-desc": "രോഗ തിരിച്ചറിയലിനായി വെണ്ടക്കാ ഇലയുടെ വ്യക്തമായ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      "upload-video-title": "ഇലയുടെ വീഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "upload-video-desc": "വിപുലമായ വിശകലനത്തിനായി വെണ്ടക്കാ ചെടിയുടെ ഇലകളുടെ വീഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "diagnose-image": "ചിത്രം രോഗനിർണയം ചെയ്യുക",
+      "diagnose-video": "വീഡിയോ രോഗനിർണയം ചെയ്യുക",
+      "predicted-disease": "പ്രവചിച്ച രോഗം",
+      "detected-diseases": "കണ്ടെത്തിയ രോഗങ്ങൾ",
+      "explanation": "വിശദീകരണം",
+      "water": "വെള്ളം",
+      "fertilizer": "വളം",
+      "medicine": "മരുന്ന്",
+      "organic-medicine": "ജൈവ മരുന്ന്",
+      "prevention": "തടയൽ",
+      "uploaded-image": "അപ്‌ലോഡ് ചെയ്ത ചിത്രം",
+      "uploaded-frame": "അപ്‌ലോഡ് ചെയ്ത വീഡിയോ ഫ്രെയിം",
+      "contact": "ബന്ധപ്പെടുക",
+      "contact-us": "ഞങ്ങളെ ബന്ധപ്പെടുക",
+      "send-message": "സന്ദേശം അയയ്ക്കുക",
+      "built-for": "ഉപയോഗിച്ച് നിർമ്മിച്ചത്",
+      "for-farmers": "കർഷകർക്കായി",
+      "powered-by": "TDA TECHNOLOGY നൽകുന്ന ശക്തി",
+      "chatbot-tooltip": "കൂടുതൽ സഹായം വേണോ? എന്നോട് എന്തും ചോദിക്കുക!",
+      "chatbot-speech": "കൂടുതൽ വിവരങ്ങൾ വേണമോ? ചോദിക്കാൻ ഒട്ടും സംശയിക്കേണ്ട! 😊",
+      "buy": "വാങ്ങുക"
+    },
+    te: {
+      "app-name": "బెండకాయ వ్యాధి గుర్తింపు",
+      "hero-title": "బెండకాయ మొక్క వ్యాధి గుర్తింపు",
+      "hero-subtitle": "మీ బెండకాయ మొక్క ఇమేజ్ లేదా వీడియోను అప్‌లోడ్ చేసి, AI-ఆధారిత విశ్లేషణతో తక్షణమే వ్యాధులను గుర్తించండి",
+      "upload-image-title": "ఆకు ఇమేజ్ అప్‌లోడ్ చేయండి",
+      "upload-image-desc": "వ్యాధి గుర్తింపు కోసం బెండకాయ ఆకు యొక్క స్పష్టమైన ఇమేజ్ ను అప్‌లోడ్ చేయండి",
+      "upload-video-title": "ఆకు వీడియో అప్‌లోడ్ చేయండి",
+      "upload-video-desc": "విస్తృత విశ్లేషణ కోసం బెండకాయ మొక్క ఆకుల వీడియోను అప్‌లోడ్ చేయండి",
+      "diagnose-image": "ఇమేజ్ ను రోగనిర్ధారణ చేయండి",
+      "diagnose-video": "వీడియోను రోగనిర్ధారణ చేయండి",
+      "predicted-disease": "అంచనా వేసిన వ్యాధి",
+      "detected-diseases": "గుర్తించబడిన వ్యాధులు",
+      "explanation": "వివరణ",
+      "water": "నీరు",
+      "fertilizer": "ఎరువు",
+      "medicine": "మందు",
+      "organic-medicine": "సేంద్రియ మందు",
+      "prevention": "నివారణ",
+      "uploaded-image": "అప్‌లోడ్ చేసిన ఇమేజ్",
+      "uploaded-frame": "అప్‌లోడ్ చేసిన వీడియో ఫ్రేమ్",
+      "contact": "సంప్రదించండి",
+      "contact-us": "మమ్మల్ని సంప్రదించండి",
+      "send-message": "సందేశం పంపండి",
+      "built-for": "తో నిర్మించబడింది",
+      "for-farmers": "రైతుల కోసం",
+      "powered-by": "TDA TECHNOLOGY ద్వారా సమర్థించబడింది",
+      "chatbot-tooltip": "మరింత సహాయం కావాలా? నన్ను ఏదైనా అడగండి!",
+      "chatbot-speech": "మీకు మరింత సమాచారం కావాలా? అడగడానికి సంకోచించకండి! 😊",
+      "buy": "కొనండి"
+    },
+    kn: {
+      "app-name": "ಬೆಂಡೆಕಾಯಿ ರೋಗ ಗುರುತಿಸುವಿಕೆ",
+      "hero-title": "ಬೆಂಡೆಕಾಯಿ ಸಸ್ಯ ರೋಗ ಗುರುತಿಸುವಿಕೆ",
+      "hero-subtitle": "ನಿಮ್ಮ ಬೆಂಡೆಕಾಯಿ ಸಸ್ಯದ ಎಲೆಯ ಚಿತ್ರ ಅಥವಾ ವೀಡಿಯೊವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು AI-ಚಾಲಿತ ವಿಶ್ಲೇಷಣೆಯೊಂದಿಗೆ ತಕ್ಷಣ ರೋಗಗಳನ್ನು ಪತ್ತೆ ಮಾಡಿ",
+      "upload-image-title": "ಎಲೆಯ ಚಿತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+      "upload-image-desc": "ರೋಗ ಗುರುತಿಸುವಿಕೆಗಾಗಿ ಬೆಂಡೆಕಾಯಿ ಎಲೆಯ ಸ್ಪಷ್ಟ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+      "upload-video-title": "ಎಲೆಯ ವೀಡಿಯೊ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+      "upload-video-desc": "ವ್ಯಾಪಕ ವಿಶ್ಲೇಷಣೆಗಾಗಿ ಬೆಂಡೆಕಾಯಿ ಸಸ್ಯದ ಎಲೆಗಳ ವೀಡಿಯೊವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+      "diagnose-image": "ಚಿತ್ರವನ್ನು ರೋಗನಿರ್ಣಯ ಮಾಡಿ",
+      "diagnose-video": "ವೀಡಿಯೊವನ್ನು ರೋಗನಿರ್ಣಯ ಮಾಡಿ",
+      "predicted-disease": "ಊಹಿಸಲಾದ ರೋಗ",
+      "detected-diseases": "ಗುರುತಿಸಲಾದ ರೋಗಗಳು",
+      "explanation": "ವಿವರಣೆ",
+      "water": "ನೀರು",
+      "fertilizer": "ಎರುವು",
+      "medicine": "ಮದ್ದು",
+      "organic-medicine": "ಸಾವಯವ ಮದ್ದು",
+      "prevention": "ತಡೆಗಟ್ಟುವಿಕೆ",
+      "uploaded-image": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಚಿತ್ರ",
+      "uploaded-frame": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ವೀಡಿಯೊ ಫ್ರೇಮ್",
+      "contact": "ಸಂಪರ್ಕಿಸಿ",
+      "contact-us": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      "send-message": "ಸಂದೇಶ ಕಳುಹಿಸಿ",
+      "built-for": "ಜೊತೆಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+      "for-farmers": "ರೈತರಿಗಾಗಿ",
+      "powered-by": "TDA TECHNOLOGY ನಿಂದ ಶಕ್ತಿ ಪಡೆದಿದೆ",
+      "chatbot-tooltip": "ಹೆಚ್ಚಿನ ಸಹಾಯ ಬೇಕೇ? ನನ್ನನ್ನು ಏನಾದರೂ ಕೇಳಿ!",
+      "chatbot-speech": "ನಿಮಗೆ ಹೆಚ್ಚಿನ ಮಾಹಿತಿ ಬೇಕೇ? ಕೇಳಲು ಹಿಂಜರಿಯಬೇಡಿ! 😊",
+      "buy": "ಖರೀದಿಸಿ"
+    },
     ur: {
-  "app-name": "ناریل بیماری کی شناخت",
-  "hero-title": "ناریل کے درخت کی بیماری کی شناخت",
-  "hero-subtitle": "اپنی ناریل کے پتے کی تصویر یا ویڈیو اپ لوڈ کریں اور AI-چلائے جانے والے تجزیے کے ساتھ فوری طور پر بیماریوں کا پتہ لگائیں",
-  "upload-image-title": "پتے کی تصویر اپ لوڈ کریں",
-  "upload-image-desc": "بیماری کی شناخت کے لیے ناریل کے پتے کی واضح تصویر اپ لوڈ کریں",
-  "upload-video-title": "پتے کی ویڈیو اپ لوڈ کریں",
-  "upload-video-desc": "وسیع تجزیہ کے لیے ناریل کے پتوں کی ویڈیو اپ لوڈ کریں",
-  "diagnose-image": "تصویر کی تشخیص کریں",
-  "diagnose-video": "ویڈیو کی تشخیص کریں",
-  "predicted-disease": "متوقع بیماری",
-  "detected-diseases": "پائی گئی بیماریاں",
-  "explanation": "وضاحت",
-  "water": "پانی",
-  "fertilizer": "کھاد",
-  "medicine": "دوا",
-  "organic-medicine": "نامیاتی دوا",
-  "prevention": "روک تھام",
-  "uploaded-image": "اپ لوڈ کی گئی تصویر",
-  "uploaded-frame": "اپ لوڈ کیا گیا ویڈیو فریم",
-  "contact": "رابطہ کریں",
-  "contact-us": "ہم سے رابطہ کریں",
-  "send-message": "پیغام بھیجیں",
-  "built-for": "کے ساتھ بنایا گیا",
-  "for-farmers": "کسانوں کے لیے",
-  "powered-by": "TDA TECHNOLOGY کے ذریعہ طاقت ور",
-  "chatbot-tooltip": "مزید مدد چاہیے؟ مجھ سے کچھ بھی پوچھیں!",
-  "chatbot-speech": "آپ مزید معلومات چاہتے ہیں؟ پوچھنے میں ہچکچاہٹ محسوس نہ کریں! 😊"
-}
+      "app-name": "بھنڈی بیماری کی شناخت",
+      "hero-title": "بھنڈی کے پودے کی بیماری کی شناخت",
+      "hero-subtitle": "اپنی بھنڈی کے پودے کی پتے کی تصویر یا ویڈیو اپ لوڈ کریں اور AI-چلائے جانے والے تجزیے کے ساتھ فوری طور پر بیماریوں کا پتہ لگائیں",
+      "upload-image-title": "پتے کی تصویر اپ لوڈ کریں",
+      "upload-image-desc": "بیماری کی شناخت کے لیے بھنڈی کے پتے کی واضح تصویر اپ لوڈ کریں",
+      "upload-video-title": "پتے کی ویڈیو اپ لوڈ کریں",
+      "upload-video-desc": "وسیع تجزیہ کے لیے بھنڈی کے پودے کی پتوں کی ویڈیو اپ لوڈ کریں",
+      "diagnose-image": "تصویر کی تشخیص کریں",
+      "diagnose-video": "ویڈیو کی تشخیص کریں",
+      "predicted-disease": "متوقع بیماری",
+      "detected-diseases": "پائی گئی بیماریاں",
+      "explanation": "وضاحت",
+      "water": "پانی",
+      "fertilizer": "کھاد",
+      "medicine": "دوا",
+      "organic-medicine": "نامیاتی دوا",
+      "prevention": "روک تھام",
+      "uploaded-image": "اپ لوڈ کی گئی تصویر",
+      "uploaded-frame": "اپ لوڈ کیا گیا ویڈیو فریم",
+      "contact": "رابطہ کریں",
+      "contact-us": "ہم سے رابطہ کریں",
+      "send-message": "پیغام بھیجیں",
+      "built-for": "کے ساتھ بنایا گیا",
+      "for-farmers": "کسانوں کے لیے",
+      "powered-by": "TDA TECHNOLOGY کے ذریعہ طاقت ور",
+      "chatbot-tooltip": "مزید مدد چاہیے؟ مجھ سے کچھ بھی پوچھیں!",
+      "chatbot-speech": "آپ مزید معلومات چاہتے ہیں؟ پوچھنے میں ہچکچاہٹ محسوس نہ کریں! 😊",
+      "buy": "خریدیں"
+    }
   };
 
   // Current language (default to English)
@@ -1521,6 +1834,13 @@
   const languageOptions = document.querySelectorAll('.language-option');
   const languageTabs = document.querySelectorAll('.language-tab');
 
+  // Function to search for medicine on BigHaat
+  function searchMedicine(medicineName) {
+    // Navigate to BigHaat homepage - user can search for medicine there
+    const bigHaatUrl = "https://www.bighaat.com/";
+    window.open(bigHaatUrl, '_blank');
+    
+  }
   // Initialize language on page load
   document.addEventListener('DOMContentLoaded', function() {
     // Set current language
